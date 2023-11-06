@@ -67,14 +67,14 @@ const Home = () => {
     fetchTrendingMovies()
       .then(resp => {
         if (!resp.ok) {
-          setError('Sorry, something wrong');
+          setError('Sorry, something went wrong');
           throw new Error();
         }
         return resp.json();
       })
       .then(data => {
         if (data.results.length === 0) {
-          setError("Sorry we didn't find anything");
+          setError("Sorry, we didn't find anything");
           throw new Error();
         }
         return data.results;
@@ -93,7 +93,10 @@ const Home = () => {
   };
 
   return (
-    <MoviesList films={trandingMovies} customStyles={customStyles} />
+    <div>
+      {error && <p>{error}</p>}
+      <MoviesList films={trandingMovies} customStyles={customStyles} />
+    </div>
   );
 };
 
