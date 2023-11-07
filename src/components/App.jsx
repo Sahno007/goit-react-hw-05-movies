@@ -20,9 +20,9 @@ export const App = () => {
             <Route path="reviews" element={<Reviews />} />
           </Route>
         </Route>
-        <Route path="*" element={<Loyout />}>
+        {/* <Route path="*" element={<Loyout />}>
           <Route index element={<Home />} />
-        </Route>
+        </Route> */}
       </Routes>
     </Router>
   );
